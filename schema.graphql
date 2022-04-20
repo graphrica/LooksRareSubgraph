@@ -1,0 +1,20 @@
+type Collection @entity {
+  id: ID!
+  sales: [Sale!] ! @derivedFrom(field: "collection")
+}
+
+type Account @entity {
+  id: ID!
+}
+
+type Sale @entity {
+  id: ID!
+  buyer: Account!
+  seller: Account!
+  collection: Collection!
+  currency: Bytes!
+  price: BigInt!
+  tokenId: BigInt!
+  amount: BigInt!
+  timestamp: BigInt!
+}
